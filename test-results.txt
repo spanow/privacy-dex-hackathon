@@ -1,0 +1,227 @@
+
+> privacy-dex-hackathon@1.0.0 test
+> jest
+
+FAIL test/components/PrivacyDashboard.test.js
+  ● Test suite failed to run
+
+    Cannot find module '../../components/PrivacyDashboard/PrivacyDashboard' from 'test/components/PrivacyDashboard.test.js'
+
+      1 | import React from 'react';
+      2 | import { render, screen } from '@testing-library/react';
+    > 3 | import PrivacyDashboard from '../../components/PrivacyDashboard/PrivacyDashboard';
+        | ^
+      4 | import '@testing-library/jest-dom';
+      5 |
+      6 | describe('PrivacyDashboard', () => {
+
+      at Resolver._throwModNotFoundError (node_modules/jest-resolve/build/resolver.js:427:11)
+      at Object.require (test/components/PrivacyDashboard.test.js:3:1)
+
+FAIL src/tests/components/PrivacyDashboard.test.js
+  ● PrivacyDashboard › renders all four privacy indicators
+
+    TestingLibraryElementError: Unable to find an element with the text: /identité/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"privacy-shield rounded-lg"[39m
+        [36m>[39m
+          [36m<h2[39m
+            [33mclass[39m=[32m"text-xl font-bold mb-4 text-center"[39m
+          [36m>[39m
+            [0mPRIVACY SHIELD[0m
+          [36m</h2>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"grid grid-cols-2 md:grid-cols-4 gap-4"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"privacy-indicator"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"privacy-indicator-dot active"[39m
+                [33mdata-testid[39m=[32m"identity-indicator"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"font-medium"[39m
+                [36m>[39m
+                  [0mIdentity[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"text-sm text-gray-300"[39m
+                [36m>[39m
+                  [0mProtected[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"privacy-indicator"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"privacy-indicator-dot active"[39m
+                [33mdata-testid[39m=[32m"amounts-indicator"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"font-medium"[39m
+                [36m>[39m
+                  [0mAmounts[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"text-sm text-gray-300"[39m
+                [36m>[39m
+                  [0mHidden[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"privacy-indicator"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"privacy-indicator-dot active"[39m
+                [33mdata-testid[39m=[32m"history-indicator"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"font-medium"[39m
+                [36m>[39m
+                  [0mHistory[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"text-sm text-gray-300"[39m
+                [36m>[39m
+                  [0mPrivate[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"privacy-indicator"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"privacy-indicator-dot active"[39m
+                [33mdata-testid[39m=[32m"mev-indicator"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"font-medium"[39m
+                [36m>[39m
+                  [0mProtection[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"text-sm text-gray-300"[39m
+                [36m>[39m
+                  [0mAnti-MEV[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      12 |   test('renders all four privacy indicators', () => {
+      13 |     render(<PrivacyDashboard />);
+    > 14 |     expect(screen.getByText(/identité/i)).toBeInTheDocument();
+         |                   ^
+      15 |     expect(screen.getByText(/montants/i)).toBeInTheDocument();
+      16 |     expect(screen.getByText(/historique/i)).toBeInTheDocument();
+      17 |     expect(screen.getByText(/protection/i)).toBeInTheDocument();
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+      at Object.getByText (src/tests/components/PrivacyDashboard.test.js:14:19)
+
+PASS src/components/ZKVisualization/__test__/ZKCircuitVisualizer.test.js
+PASS src/components/AtomicSwap/__test__/AtomicSwapVisualize.test.js
+FAIL src/components/Wallet/__test__/WalletConnector.test.js
+  ● WalletConnector Component › handles error when MetaMask is not installed
+
+    Unable to find an element with the text: /MetaMask is not installed/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"p-4 bg-gray-800 rounded-lg border border-gray-700"[39m
+        [36m>[39m
+          [36m<h3[39m
+            [33mclass[39m=[32m"text-lg font-bold mb-4 text-center"[39m
+          [36m>[39m
+            [0mWallet[0m
+          [36m</h3>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col items-center"[39m
+          [36m>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-sm mb-4"[39m
+            [36m>[39m
+              [0mConnect your wallet to use the DEX[0m
+            [36m</p>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium"[39m
+            [36m>[39m
+              [0mConnect Wallet[0m
+            [36m</button>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      68 |     
+      69 |     // Wait for error message to appear
+    > 70 |     await screen.findByText(/MetaMask is not installed/i, {}, { timeout: 1000 });
+         |                  ^
+      71 |     expect(screen.getByText(/MetaMask is not installed/i)).toBeInTheDocument();
+      72 |   });
+      73 |
+
+      at waitForWrapper (node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+      at findByText (src/components/Wallet/__test__/WalletConnector.test.js:70:18)
+      at call (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+      at Generator.tryCatch (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+      at Generator._invoke [as next] (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+      at asyncGeneratorStep (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+      at asyncGeneratorStep (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+
+  ● WalletConnector Component › calls onConnect callback when connection is successful
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: ObjectContaining {"account": "0x123456789abcdef", "chainId": 1}
+
+    Number of calls: 0
+
+       96 |     
+       97 |     // Check if the callback was called with expected data
+    >  98 |     expect(mockOnConnect).toHaveBeenCalledWith(expect.objectContaining({
+          |                           ^
+       99 |       account: '0x123456789abcdef',
+      100 |       chainId: 1
+      101 |     }));
+
+      at toHaveBeenCalledWith (src/components/Wallet/__test__/WalletConnector.test.js:98:27)
+      at call (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+      at Generator.tryCatch (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+      at Generator._invoke [as next] (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+      at asyncGeneratorStep (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+      at asyncGeneratorStep (src/components/Wallet/__test__/WalletConnector.test.js:2:1)
+
+Test Suites: 3 failed, 2 passed, 5 total
+Tests:       3 failed, 11 passed, 14 total
+Snapshots:   0 total
+Time:        2.376 s
+Ran all test suites.
